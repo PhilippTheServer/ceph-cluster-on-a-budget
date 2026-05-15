@@ -87,11 +87,11 @@ flowchart TB
     EXT(["Internet"])
 
     subgraph CLOUD["Hetzner Cloud"]
-        CM["CephMaster\nManager · Monitor\nWireGuard-Server · Statische IP"]
+        direction LR
         CC1["CephClient1\nManager · Monitor"]
+        CM["CephMaster\nManager · Monitor\nWireGuard-Server · Statische IP"]
         CC2["CephClient2\nManager · Monitor"]
-        CM --- CC1
-        CM --- CC2
+        CC1 --- CM --- CC2
     end
 
     subgraph KELLER["Lokaler Keller  —  13 Nodes · 37 OSDs · Debian 13"]
