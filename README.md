@@ -84,44 +84,34 @@ Die lokale Internetanbindung ist auf **500 Mbit/s** begrenzt. Ceph-interner Traf
 
 ```mermaid
 flowchart TB
-    EXT(["🌐 Internet\nExterner Zugriff / Admin"])
+    EXT(["Internet"])
 
-    subgraph CLOUD["☁️  Hetzner Cloud"]
-        direction TB
-        CM["**CephMaster**\nManager · Monitor\nWireGuard-Server\nStatische IP"]
+    subgraph CLOUD["Hetzner Cloud"]
+        CM["CephMaster\nManager · Monitor\nWireGuard-Server · Statische IP"]
         CC1["CephClient1\nManager · Monitor"]
         CC2["CephClient2\nManager · Monitor"]
         CM --- CC1
         CM --- CC2
     end
 
-    subgraph KELLER["🏠  Lokaler Keller"]
-        direction TB
-        subgraph NODES["13 Storage-Nodes · 37 OSDs · Debian 13"]
-            direction LR
-            N1["Ceph-Tower2\n2 OSDs"]
-            N2["Ceph-Tower4\n6 OSDs"]
-            N3["Ceph-Tower5\n4 OSDs"]
-            NX["... 10 weitere Nodes"]
-        end
-        SW[["Backbone-Switch\nstatische IPs — kein DHCP"]]
+    subgraph KELLER["Lokaler Keller  —  13 Nodes · 37 OSDs · Debian 13"]
+        WG(["WireGuard\nVPN-Endpunkt"])
+        N1["Ceph-Tower2\n2 OSDs"]
+        N2["Ceph-Tower4\n6 OSDs"]
+        N3["Ceph-Tower5\n4 OSDs"]
+        NX["...10 weitere Nodes"]
+        SW[["Backbone-Switch\nstatische IPs · kein DHCP"]]
+        WG --> N1 & N2 & N3 & NX
+        N1 & N2 & N3 & NX --> SW
     end
 
-    EXT -->|"HTTPS · S3 · Admin"| CM
-    CM <-.->|"WireGuard VPN\nexterner Traffic"| N1
-    CM <-.->|"WireGuard VPN"| N2
-    CM <-.->|"WireGuard VPN"| N3
-    CM <-.->|"WireGuard VPN"| NX
-
-    N1 <-->|"Ceph-intern"| SW
-    N2 <-->|"Ceph-intern"| SW
-    N3 <-->|"Ceph-intern"| SW
-    NX <-->|"Ceph-intern"| SW
+    EXT -->|"Internet"| CM
+    CM <-.->|"WireGuard VPN\nexterner Client-Traffic"| WG
 
     style CLOUD fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
     style KELLER fill:#dcfce7,stroke:#16a34a,color:#14532d
-    style NODES fill:#f0fdf4,stroke:#86efac
-    style SW   fill:#fef9c3,stroke:#ca8a04
+    style WG    fill:#ede9fe,stroke:#7c3aed
+    style SW    fill:#fef9c3,stroke:#ca8a04
 ```
 
 | Netzwerk         | Traffic                                            | Bandbreite        |
