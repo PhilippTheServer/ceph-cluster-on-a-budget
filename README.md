@@ -236,7 +236,7 @@ flowchart TB
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': {'background': '#0d0c14', 'primaryColor': '#1a1828', 'primaryTextColor': '#e0def4', 'primaryBorderColor': '#524f67', 'lineColor': '#908caa', 'clusterBkg': '#131120', 'clusterBorder': '#423e59', 'titleColor': '#e0def4'}}}%%
 flowchart TB
-    APP(["💻 Anwendung / Client"])
+    APP(["Anwendung / Client"])
 
     subgraph CEPH["Ceph"]
         subgraph IF["Zugriffs-Interface"]
@@ -248,7 +248,7 @@ flowchart TB
 
         subgraph RADOS["RADOS — Verteilter Objektspeicher"]
             direction LR
-            O1["OSD 1\nDisk"] 
+            O1["OSD 1\nDisk"]
             O2["OSD 2\nDisk"]
             O3["OSD 3\nDisk"]
             ON["..."]
@@ -268,8 +268,8 @@ flowchart TB
     IF --> RADOS
     CTRL -.-|"koordiniert & überwacht"| RADOS
 
-    style CEPH  fill:#f8fafc,stroke:#94a3b8,color:#0f172a
-    style IF    fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
-    style RADOS fill:#dcfce7,stroke:#16a34a,color:#14532d
-    style CTRL  fill:#ede9fe,stroke:#7c3aed,color:#3b0764
+    style CEPH  fill:#0d0c14,stroke:#524f67,color:#e0def4
+    style IF    fill:#1a1828,stroke:#31748f,color:#9ccfd8
+    style RADOS fill:#131120,stroke:#403d52,color:#e0def4
+    style CTRL  fill:#1a1828,stroke:#7c3aed,color:#c4a7e7
 ```
