@@ -87,30 +87,31 @@ flowchart TB
     EXT(["Internet"])
 
     subgraph CLOUD["Hetzner Cloud"]
-        direction LR
-        CC1["CephClient1\nManager · Monitor"]
         CM["CephMaster\nManager · Monitor\nWireGuard-Server · Statische IP"]
+        CC1["CephClient1\nManager · Monitor"]
         CC2["CephClient2\nManager · Monitor"]
-        CC1 --- CM --- CC2
+        CM --- CC1
+        CM --- CC2
     end
 
+    VPN(["WireGuard VPN\nexterner Client-Traffic"])
+
     subgraph KELLER["Lokaler Keller  —  13 Nodes · 37 OSDs · Debian 13"]
-        WG(["WireGuard\nVPN-Endpunkt"])
         N1["Ceph-Tower2\n2 OSDs"]
         N2["Ceph-Tower4\n6 OSDs"]
         N3["Ceph-Tower5\n4 OSDs"]
         NX["...10 weitere Nodes"]
         SW[["Backbone-Switch\nstatische IPs · kein DHCP"]]
-        WG --> N1 & N2 & N3 & NX
         N1 & N2 & N3 & NX --> SW
     end
 
-    EXT -->|"Internet"| CM
-    CM <-.->|"WireGuard VPN\nexterner Client-Traffic"| WG
+    EXT --> CM
+    CM -.-> VPN
+    VPN -.-> N1 & N2 & N3 & NX
 
     style CLOUD fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
     style KELLER fill:#dcfce7,stroke:#16a34a,color:#14532d
-    style WG    fill:#ede9fe,stroke:#7c3aed
+    style VPN   fill:#ede9fe,stroke:#7c3aed
     style SW    fill:#fef9c3,stroke:#ca8a04
 ```
 
