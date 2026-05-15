@@ -59,11 +59,11 @@ Ein funktionierender, verteilter Ceph-Storage-Cluster aus gebrauchter Hardware �
 
 ### Hetzner Cloud Nodes
 
-| Node          | Rolle                                    |
-| ------------- | ---------------------------------------- |
-| `CephMaster`  | Ceph Manager, Monitor, WireGuard-Server  |
-| `CephClient1` | Ceph Manager, Monitor, Client            |
-| `CephClient2` | Ceph Manager, Monitor, Client            |
+| Node          | Rolle                                                        |
+| ------------- | ------------------------------------------------------------ |
+| `CephMaster`  | Ceph Manager, Monitor, WireGuard-Server, statische IP        |
+| `CephClient1` | Ceph Manager, Monitor, statische IP — Failover für CephMaster (kein VPN) |
+| `CephClient2` | Ceph Manager, Monitor, statische IP — Failover für CephMaster (kein VPN) |
 
 ### Warum Cloud für Management?
 
@@ -88,10 +88,10 @@ flowchart TB
 
     subgraph CLOUD["Hetzner Cloud"]
         CM["CephMaster\nManager · Monitor\nWireGuard-Server · Statische IP"]
-        CC1["CephClient1\nManager · Monitor"]
-        CC2["CephClient2\nManager · Monitor"]
-        CM --- CC1
-        CM --- CC2
+        CC1["CephClient1\nManager · Monitor\nStatische IP · Failover"]
+        CC2["CephClient2\nManager · Monitor\nStatische IP · Failover"]
+        CM -. "Failover" .- CC1
+        CM -. "Failover" .- CC2
     end
 
     VPN(["WireGuard VPN\nexterner Client-Traffic"])
