@@ -179,24 +179,22 @@ Grafana
 **Cluster-Zustand:**
 - 89.1 TB Kapazität
 - Write: 40.7 kB/s
-- 5 Monitors aktiv
-- 37 OSDs online
 - Latenz: ~8 ms
 
 ---
 
 <!-- _footer: '' -->
 
-## Dashboard - Host-Ressourcen
+## Dashboard - Host Ressourcen
 
 ![bg right:65% contain](images/Host-stats-idle.png)
 
 **Im Idle:**
-- Ø CPU: 7.45 %
-- Ø RAM: 30.2 %
-- Ø Disk Load: 5.14 %
-- 1440 physische Cores
-- Periodische CPU-Peaks durch Ceph-Hintergrundprozesse
+Ø CPU: 7.45 %
+Ø RAM: 30.2 %
+Ø Disk Load: 5.14 %
+
+> Periodische CPU-Peaks durch Ceph-Hintergrundtasks
 
 ---
 
@@ -216,16 +214,19 @@ Grafana
 
 ---
 
-<!-- _class: lead invert -->
 
 ## Ausblick
 
-Alertmanager konfigurieren · Dedizierte BlueStore-Devices
-Automatisiertes Provisioning (Cephadm / Ansible)
-Failover-Tests · Kapazitätsplanung
+- Dedizierte BlueStore SSDs
+- Failover-Tests
+- CRUSH Map verbesserung
+- 10Gbit/s upgrade für lokales Netz
+- Migration der Hetzner Cloud Nodes in das Datacenter
+
+
 
 <br>
 
-# Danke! Fragen?
+# Fragen?
 
-`github.com/PhilippTheSurfer`
+`github.com/PhilippTheServer`
