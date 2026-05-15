@@ -234,26 +234,41 @@ flowchart TB
 ## Ceph Aufbau
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': {'background': '#0d0c14', 'primaryColor': '#1a1828', 'primaryTextColor': '#e0def4', 'primaryBorderColor': '#524f67', 'lineColor': '#908caa', 'clusterBkg': '#131120', 'clusterBorder': '#423e59', 'titleColor': '#e0def4'}}}%%
-flowchart LR
-    C(["💻 Client"])
+flowchart TB
+    APP(["💻 Anwendung / Client"])
 
-    subgraph CTRL["Steuerungsebene"]
-        direction TB
-        MON["🧭 Monitor\nCluster-Karte & Quorum"]
-        MGR["🎛️ Manager\nMetriken & Dashboard"]
+    subgraph CEPH["Ceph"]
+        subgraph IF["Zugriffs-Interface"]
+            direction LR
+            RBD["📦 Block\nRBD"]
+            CFS["📁 Datei\nCephFS"]
+            RGW["🪣 Object\nS3 · RGW"]
+        end
+
+        subgraph RADOS["RADOS — Verteilter Objektspeicher"]
+            direction LR
+            O1["OSD 1\nDisk"] 
+            O2["OSD 2\nDisk"]
+            O3["OSD 3\nDisk"]
+            ON["..."]
+            O1 <-.->|"Replikation"| O2
+            O2 <-.->|"Replikation"| O3
+            O3 <-.-> ON
+        end
+
+        subgraph CTRL["Steuerungsebene"]
+            direction LR
+            MON["🧭 Monitor\nCluster-Karte & Quorum"]
+            MGR["🎛️ Manager\nBetrieb & Metriken"]
+        end
     end
 
-    subgraph DATA["Datenebene"]
-        direction TB
-        O1["🗄️ OSD 1"]
-        O2["🗄️ OSD 2"]
-        O3["🗄️ OSD 3"]
-    end
+    APP --> IF
+    IF --> RADOS
+    CTRL -.-|"koordiniert & überwacht"| RADOS
 
-    C -->|"① Wo liegt\nmein Datum?"| MON
-    C ==>|"② Daten\nschreiben"| O1
-    O1 -.->|"③ Replikation"| O2
-    O1 -.->|"③ Replikation"| O3
-    MGR -.-|"überwacht"| DATA
+    style CEPH  fill:#f8fafc,stroke:#94a3b8,color:#0f172a
+    style IF    fill:#dbeafe,stroke:#3b82f6,color:#1e3a5f
+    style RADOS fill:#dcfce7,stroke:#16a34a,color:#14532d
+    style CTRL  fill:#ede9fe,stroke:#7c3aed,color:#3b0764
 ```
