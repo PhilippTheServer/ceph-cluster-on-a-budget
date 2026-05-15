@@ -234,6 +234,7 @@ flowchart TB
 ## Ceph Aufbau
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'background': '#0d0c14', 'primaryColor': '#1a1828', 'primaryTextColor': '#e0def4', 'primaryBorderColor': '#524f67', 'lineColor': '#908caa', 'clusterBkg': '#131120', 'clusterBorder': '#423e59', 'titleColor': '#e0def4'}}}%%
 flowchart TB
     APP(["💻 Anwendung / Client"])
 
