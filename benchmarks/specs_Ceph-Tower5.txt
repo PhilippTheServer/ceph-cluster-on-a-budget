@@ -1,0 +1,1285 @@
+================================================================================
+  Ceph Node Specification & Benchmark Report
+  Generated : 2026-02-27T11:53:02Z
+  Host      : Ceph-Tower5  (Ceph-Tower5)
+  User      : root (uid=0)
+  Log file  : specs_Ceph-Tower5_20260227T115302Z.txt
+================================================================================
+
+================================================================================
+  SECTION : 0  DEPENDENCY BOOTSTRAP
+  TIME    : 2026-02-27T11:53:02Z
+================================================================================
+
+
+================================================================================
+  SECTION : 1  NODE IDENTIFICATION
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : Timestamp (UTC)
+  CMD   : date -u +%Y-%m-%dT%H:%M:%SZ
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : hostnamectl
+  CMD   : hostnamectl
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+ Static hostname: Ceph-Tower5
+       Icon name: computer-desktop
+         Chassis: desktop 🖥️
+      Machine ID: f30d1744981545ed8cd23c150009d65e
+         Boot ID: 9517d80c443d4484bcd161816499847e
+Operating System: Debian GNU/Linux 12 (bookworm)
+          Kernel: Linux 6.1.0-37-amd64
+    Architecture: x86-64
+ Hardware Vendor: FUJITSU
+  Hardware Model: ESPRIMO P910
+Firmware Version: V4.6.5.3 R1.23.0 for D3162-A1x
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : FQDN
+  CMD   : hostname -f
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+Ceph-Tower5
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Machine ID
+  CMD   : cat /etc/machine-id
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+f30d1744981545ed8cd23c150009d65e
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Kernel / uname
+  CMD   : uname -a
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+Linux Ceph-Tower5 6.1.0-37-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.140-1 (2025-05-22) x86_64 GNU/Linux
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Uptime
+  CMD   : uptime
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+ 12:53:36 up 210 days, 21:48,  2 users,  load average: 0.79, 0.34, 0.28
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 2  SYSTEM  (MANUFACTURER / MODEL / SERIAL)
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – System
+  CMD   : dmidecode -t system
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+	Manufacturer: FUJITSU
+	Product Name: ESPRIMO P910
+	Version:                       
+	Serial Number: YLJB028259
+	UUID: 5923ffb1-81dd-e211-9122-57b705bd0953
+	Wake-up Type: Power Switch
+	SKU Number: S26361-Kxxx-Vyyy
+	Family:                 
+
+Handle 0x0038, DMI type 12, 5 bytes
+System Configuration Options
+	Option 1: J20-22: Default position
+
+Handle 0x003A, DMI type 32, 20 bytes
+System Boot Information
+	Status: No errors detected
+
+Handle 0x0058, DMI type 15, 77 bytes
+System Event Log
+	Area Length: 16383 bytes
+	Header Start Offset: 0x0000
+	Header Length: 16 bytes
+	Data Start Offset: 0x0010
+	Access Method: Memory-mapped physical 32-bit address
+	Access Address: 0xFFD08000
+	Status: Valid, Not Full
+	Change Token: 0x00000001
+	Header Format: Type 1
+	Supported Log Type Descriptors: 27
+	Descriptor 1: Single-bit ECC memory error
+	Data Format 1: Multiple-event handle
+	Descriptor 2: Multi-bit ECC memory error
+	Data Format 2: Multiple-event handle
+	Descriptor 3: Parity memory error
+	Data Format 3: None
+	Descriptor 4: Bus timeout
+	Data Format 4: None
+	Descriptor 5: I/O channel block
+	Data Format 5: None
+	Descriptor 6: Software NMI
+	Data Format 6: None
+	Descriptor 7: POST memory resize
+	Data Format 7: None
+	Descriptor 8: POST error
+	Data Format 8: POST results bitmap
+	Descriptor 9: PCI parity error
+	Data Format 9: Multiple-event handle
+	Descriptor 10: PCI system error
+	Data Format 10: Multiple-event handle
+	Descriptor 11: CPU failure
+	Data Format 11: None
+	Descriptor 12: EISA failsafe timer timeout
+	Data Format 12: None
+	Descriptor 13: Correctable memory log disabled
+	Data Format 13: None
+	Descriptor 14: Logging disabled
+	Data Format 14: None
+	Descriptor 15: System limit exceeded
+	Data Format 15: None
+	Descriptor 16: Asynchronous hardware timer expired
+	Data Format 16: None
+	Descriptor 17: System configuration information
+	Data Format 17: None
+	Descriptor 18: Hard disk information
+	Data Format 18: None
+	Descriptor 19: System reconfigured
+	Data Format 19: None
+	Descriptor 20: Uncorrectable CPU-complex error
+	Data Format 20: None
+	Descriptor 21: Log area reset/cleared
+	Data Format 21: None
+	Descriptor 22: System boot
+	Data Format 22: None
+	Descriptor 23: End of log
+	Data Format 23: None
+	Descriptor 24: OEM-specific
+	Data Format 24: OEM-specific
+	Descriptor 25: OEM-specific
+	Data Format 25: OEM-specific
+	Descriptor 26: OEM-specific
+	Data Format 26: OEM-specific
+	Descriptor 27: OEM-specific
+	Data Format 27: OEM-specific
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – BIOS
+  CMD   : dmidecode -t bios
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+	Vendor: FUJITSU // American Megatrends Inc.
+	Version: V4.6.5.3 R1.23.0 for D3162-A1x
+	Release Date: 12/01/2014
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 8 MB
+	Characteristics:
+		PCI is supported
+		BIOS is upgradeable
+		BIOS shadowing is allowed
+		Boot from CD is supported
+		Selectable boot is supported
+		EDD is supported
+		Print screen service is supported (int 5h)
+		8042 keyboard services are supported (int 9h)
+		Serial services are supported (int 14h)
+		Printer services are supported (int 17h)
+		ACPI is supported
+		USB legacy is supported
+		BIOS boot specification is supported
+		Targeted content distribution is supported
+		UEFI is supported
+	BIOS Revision: 1.23
+
+Handle 0x007A, DMI type 13, 22 bytes
+BIOS Language Information
+	Language Description Format: Long
+	Installable Languages: 2
+		en|US|iso8859-1
+		ja|JP|unicode
+	Currently Installed Language: en|US|iso8859-1
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 3  CPU
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : lscpu
+  CMD   : lscpu
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           36 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  4
+On-line CPU(s) list:                     0-3
+Vendor ID:                               GenuineIntel
+BIOS Vendor ID:                          Intel(R) Corporation
+Model name:                              Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
+BIOS Model name:                         Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz Fill By OEM CPU @ 3.4GHz
+BIOS CPU family:                         205
+CPU family:                              6
+Model:                                   58
+Thread(s) per core:                      1
+Core(s) per socket:                      4
+Socket(s):                               1
+Stepping:                                9
+CPU(s) scaling MHz:                      59%
+CPU max MHz:                             3800.0000
+CPU min MHz:                             1600.0000
+BogoMIPS:                                6784.67
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+Virtualization:                          VT-x
+L1d cache:                               128 KiB (4 instances)
+L1i cache:                               128 KiB (4 instances)
+L2 cache:                                1 MiB (4 instances)
+L3 cache:                                6 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-3
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX disabled
+Vulnerability L1tf:                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT disabled
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT disabled
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Unknown: No mitigations
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Vulnerable: No microcode
+Vulnerability Tsx async abort:           Not affected
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : /proc/cpuinfo (first 200 lines)
+  CMD   : bash -c head -n 200 /proc/cpuinfo
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
+stepping	: 9
+microcode	: 0x21
+cpu MHz		: 1596.675
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6784.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
+stepping	: 9
+microcode	: 0x21
+cpu MHz		: 1710.647
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6784.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
+stepping	: 9
+microcode	: 0x21
+cpu MHz		: 3254.327
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6784.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 58
+model name	: Intel(R) Core(TM) i5-3570 CPU @ 3.40GHz
+stepping	: 9
+microcode	: 0x21
+cpu MHz		: 1833.842
+cache size	: 6144 KB
+physical id	: 0
+siblings	: 4
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm cpuid_fault epb pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid fsgsbase smep erms xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6784.67
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 36 bits physical, 48 bits virtual
+power management:
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 4  MEMORY (RAM)
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : free -h
+  CMD   : free -h
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+               total        used        free      shared  buff/cache   available
+Mem:            15Gi       4.3Gi       1.1Gi       9.0Mi        10Gi        11Gi
+Swap:          975Mi       379Mi       596Mi
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – Memory Devices
+  CMD   : dmidecode -t memory
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.7 present.
+
+Handle 0x0056, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 32 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 4
+
+Handle 0x0059, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0056
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM 1A
+	Bank Locator: BANK 0
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Micron
+	Serial Number: DE919ABA
+	Asset Tag: 9876543210
+	Part Number: 16JTF51264AZ-1G6M1
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+
+Handle 0x005E, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0056
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM A1
+	Bank Locator: BANK 1
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: E7500178
+	Asset Tag: 9876543210
+	Part Number: M378B5273CH0-CK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+
+Handle 0x0060, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0056
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM 1B
+	Bank Locator: BANK 2
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: E7500234
+	Asset Tag: 9876543210
+	Part Number: M378B5273CH0-CK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+
+Handle 0x0062, DMI type 17, 34 bytes
+Memory Device
+	Array Handle: 0x0056
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 4 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: DIMM B2
+	Bank Locator: BANK 3
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: Samsung
+	Serial Number: E75001B8
+	Asset Tag: 9876543210
+	Part Number: M378B5273CH0-CK0  
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 5  STORAGE OVERVIEW
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : lsblk
+  CMD   : lsblk -a -o NAME,TYPE,SIZE,MODEL,SERIAL,TRAN,ROTA,MOUNTPOINT,FSTYPE
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+NAME                                                                                                  TYPE   SIZE MODEL                 SERIAL          TRAN   ROTA MOUNTPOINT FSTYPE
+loop0                                                                                                 loop     0B                                                 1            
+loop1                                                                                                 loop     0B                                                 1            
+loop2                                                                                                 loop     0B                                                 1            
+loop3                                                                                                 loop     0B                                                 1            
+loop4                                                                                                 loop     0B                                                 1            
+loop5                                                                                                 loop     0B                                                 1            
+loop6                                                                                                 loop     0B                                                 1            
+loop7                                                                                                 loop     0B                                                 1            
+sda                                                                                                   disk 232.9G SAMSUNG HD250HJ       S0URJ9DPB77285  sata      1            
+├─sda1                                                                                                part 231.9G                                                 1 /          ext4
+├─sda2                                                                                                part     1K                                                 1            
+└─sda5                                                                                                part   976M                                                 1 [SWAP]     swap
+sdb                                                                                                   disk  14.6T WDC WD161KFGX-68AFPN0 5EG138AN        sata      1            LVM2_member
+└─ceph--b588a218--77c8--40b9--b3f3--6c5065538aea-osd--block--33085851--ff2f--4c33--9a0b--e835b13407d8 lvm   14.6T                                                 1            ceph_bluestore
+sdc                                                                                                   disk 931.5G WDC WD10EFRX-68FYTN0  WD-WCC4J3AKD2NK sata      1            LVM2_member
+└─ceph--40c4faa6--2efe--4a79--9950--0f1f3b71d71a-osd--block--3c8b3de4--1d12--4286--8cdf--bac0717dcc0b lvm  931.5G                                                 1            ceph_bluestore
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Block devices – /dev/disk/by-id
+  CMD   : bash -c ls -l /dev/disk/by-id 2>/dev/null || true
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+total 0
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 ata-SAMSUNG_HD250HJ_S0URJ9DPB77285 -> ../../sda
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 ata-SAMSUNG_HD250HJ_S0URJ9DPB77285-part1 -> ../../sda1
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 ata-SAMSUNG_HD250HJ_S0URJ9DPB77285-part2 -> ../../sda2
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 ata-SAMSUNG_HD250HJ_S0URJ9DPB77285-part5 -> ../../sda5
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 ata-WDC_WD10EFRX-68FYTN0_WD-WCC4J3AKD2NK -> ../../sdc
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 ata-WDC_WD161KFGX-68AFPN0_5EG138AN -> ../../sdb
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 dm-name-ceph--40c4faa6--2efe--4a79--9950--0f1f3b71d71a-osd--block--3c8b3de4--1d12--4286--8cdf--bac0717dcc0b -> ../../dm-1
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 dm-name-ceph--b588a218--77c8--40b9--b3f3--6c5065538aea-osd--block--33085851--ff2f--4c33--9a0b--e835b13407d8 -> ../../dm-0
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 dm-uuid-LVM-hKcxKPzmYcl8pD0IxKxNlHDoVYbxkQUOSjvj1dPsY9nXeXr49TNIKZY5SOk2Ge8Y -> ../../dm-0
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 dm-uuid-LVM-JHH6dhUoTeSEcbZrMVf9BhEZbrgSesqeRsZbCjAqwQMFHqXhTWvXr1usYpMs5Ail -> ../../dm-1
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 lvm-pv-uuid-mcZTlA-hzmY-5R92-4DCv-krCh-4L1K-uNegfG -> ../../sdb
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 lvm-pv-uuid-oQwT8y-Cfmr-5oO8-LU8B-ZiS2-q7XJ-PyXN2A -> ../../sdc
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 wwn-0x50000f009bb77285 -> ../../sda
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 wwn-0x50000f009bb77285-part1 -> ../../sda1
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 wwn-0x50000f009bb77285-part2 -> ../../sda2
+lrwxrwxrwx 1 root root 10 Feb 27 12:49 wwn-0x50000f009bb77285-part5 -> ../../sda5
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 wwn-0x5000cca2cbc080a4 -> ../../sdb
+lrwxrwxrwx 1 root root  9 Feb 27 12:49 wwn-0x50014ee20d39c8b0 -> ../../sdc
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 6  STORAGE DETAILS / HEALTH
+  TIME    : 2026-02-27T11:53:36Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : nvme list
+  CMD   : nvme list
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+Node                  Generic               SN                   Model                                    Namespace Usage                      Format           FW Rev  
+--------------------- --------------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:36Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sda
+  CMD   : smartctl -H /dev/sda
+  START : 2026-02-27T11:53:36Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sda (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sda' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+Model Family:     SAMSUNG SpinPoint S250
+Device Model:     SAMSUNG HD250HJ
+Serial Number:    S0URJ9DPB77285
+User Capacity:    250,059,350,016 bytes [250 GB]
+Sector Size:      512 bytes logical/physical
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   253   253   010    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       38463
+190 Airflow_Temperature_Cel 0x0022   112   097   000    Old_age   Always       -       42 (Min/Max 9/47)
+194 Temperature_Celsius     0x0022   112   097   000    Old_age   Always       -       42 (Min/Max 9/47)
+196 Reallocated_Event_Count 0x0032   253   253   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0012   253   253   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   253   253   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sdb
+  CMD   : smartctl -H /dev/sdb
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sdb (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sdb' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+Device Model:     WDC WD161KFGX-68AFPN0
+Serial Number:    5EG138AN
+User Capacity:    16,000,900,661,248 bytes [16.0 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    7200 rpm
+SATA Version is:  SATA 3.3, 6.0 Gb/s (current: 6.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   100   100   001    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0012   098   098   000    Old_age   Always       -       19309
+194 Temperature_Celsius     0x0002   050   050   000    Old_age   Always       -       43 (Min/Max 22/50)
+196 Reallocated_Event_Count 0x0032   100   100   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0022   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0008   100   100   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sdc
+  CMD   : smartctl -H /dev/sdc
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sdc (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sdc' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+Model Family:     Western Digital Red
+Device Model:     WDC WD10EFRX-68FYTN0
+Serial Number:    WD-WCC4J3AKD2NK
+User Capacity:    1,000,204,886,016 bytes [1.00 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    5400 rpm
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 3.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   038   038   000    Old_age   Always       -       45311
+194 Temperature_Celsius     0x0022   099   094   000    Old_age   Always       -       44
+196 Reallocated_Event_Count 0x0032   200   200   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0032   200   200   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   100   253   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 7  NETWORK
+  TIME    : 2026-02-27T11:53:37Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : ip link (brief)
+  CMD   : ip -br link
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+enp0s25          UP             90:1b:0e:02:fc:f4 <BROADCAST,MULTICAST,UP,LOWER_UP> 
+ceph-wg          UNKNOWN        <POINTOPOINT,NOARP,UP,LOWER_UP> 
+docker0          DOWN           2a:8a:7f:db:ac:91 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ip addr (brief)
+  CMD   : ip -br addr
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp0s25          UP             10.12.138.62/23 192.168.20.108/24 fe80::921b:eff:fe02:fcf4/64 
+ceph-wg          UNKNOWN        172.31.255.34/24 
+docker0          DOWN           172.17.0.1/16 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – ceph-wg
+  CMD   : ethtool ceph-wg
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+No data available
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 75  [WARN: non-zero exit]
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – docker0
+  CMD   : ethtool docker0
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+Settings for docker0:
+	Supported ports: [  ]
+	Supported link modes:   Not reported
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Unknown! (255)
+	Auto-negotiation: off
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Link detected: no
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – enp0s25
+  CMD   : ethtool enp0s25
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+Settings for enp0s25:
+	Supported ports: [ TP ]
+	Supported link modes:   10baseT/Half 10baseT/Full
+	                        100baseT/Half 100baseT/Full
+	                        1000baseT/Full
+	Supported pause frame use: No
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  10baseT/Half 10baseT/Full
+	                        100baseT/Half 100baseT/Full
+	                        1000baseT/Full
+	Advertised pause frame use: No
+	Advertised auto-negotiation: Yes
+	Advertised FEC modes: Not reported
+	Speed: 1000Mb/s
+	Duplex: Full
+	Auto-negotiation: on
+	Port: Twisted Pair
+	PHYAD: 1
+	Transceiver: internal
+	MDI-X: on (auto)
+	Supports Wake-on: pumbg
+	Wake-on: g
+        Current message level: 0x00000007 (7)
+                               drv probe link
+	Link detected: yes
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : PCI – network & storage controllers
+  CMD   : bash -c lspci -nn | grep -iE 'ethernet|network|infiniband|raid|sas|sata|nvme|storage' || true
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+00:19.0 Ethernet controller [0200]: Intel Corporation 82579LM Gigabit Network Connection (Lewisville) [8086:1502] (rev 04)
+00:1f.2 SATA controller [0106]: Intel Corporation 7 Series/C210 Series Chipset Family 6-port SATA Controller [AHCI mode] [8086:1e02] (rev 04)
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:37Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 8  CEPH
+  TIME    : 2026-02-27T11:53:37Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : ceph version
+  CMD   : ceph version
+  START : 2026-02-27T11:53:37Z
+--------------------------------------------------------------------------------
+ceph version 19.2.2 (0eceb0defba60152a8182f7bd87d164b639885b8) squid (stable)
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:43Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ceph -s
+  CMD   : ceph -s
+  START : 2026-02-27T11:53:43Z
+--------------------------------------------------------------------------------
+  cluster:
+    id:     3fa44690-cf12-11ee-ae9c-96000207cc03
+    health: HEALTH_WARN
+            2 OSD(s) experiencing slow operations in BlueStore
+            1 failed cephadm daemon(s)
+            mon CephMaster1 is low on available space
+            1/5 mons down, quorum huse-storage,CephClient1,CephMaster1,munin-herner
+ 
+  services:
+    mon: 5 daemons, quorum huse-storage,CephClient1,CephMaster1,munin-herner (age 47m), out of quorum: CephClient2
+    mgr: CephMaster1.apkxau(active, since 6M), standbys: CephClient1.hwhoeh
+    mds: 3/3 daemons up, 1 standby
+    osd: 37 osds: 37 up (since 38h), 37 in (since 5w)
+ 
+  data:
+    volumes: 3/3 healthy
+    pools:   14 pools, 913 pgs
+    objects: 5.57M objects, 11 TiB
+    usage:   24 TiB used, 57 TiB / 81 TiB avail
+    pgs:     911 active+clean
+             2   active+clean+scrubbing+deep
+ 
+  io:
+    client:   87 B/s rd, 31 KiB/s wr, 0 op/s rd, 2 op/s wr
+ 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:44Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ceph osd tree
+  CMD   : ceph osd tree
+  START : 2026-02-27T11:53:44Z
+--------------------------------------------------------------------------------
+ID   CLASS  WEIGHT    TYPE NAME               STATUS  REWEIGHT  PRI-AFF
+ -1         81.02443  root default                                     
+ -7          0.90970      host Ceph-Tower4                             
+  4    hdd   0.90970          osd.4               up   1.00000  1.00000
+-15          0.90970      host Ceph-Tower5                             
+ 19    hdd   0.90970          osd.19              up   1.00000  1.00000
+-11          4.09348      host CephTower2                              
+ 11    hdd   0.90970          osd.11              up   1.00000  1.00000
+ 12    hdd   2.72899          osd.12              up   1.00000  1.00000
+ 24    hdd   0.45479          osd.24              up   1.00000  1.00000
+-31          4.77565      host ceph-tower10                            
+ 21    hdd   2.72899          osd.21              up   1.00000  1.00000
+ 29    hdd   0.45479          osd.29              up   1.00000  1.00000
+ 30    hdd   0.68230          osd.30              up   1.00000  1.00000
+ 31    hdd   0.45479          osd.31              up   1.00000  1.00000
+ 32    hdd   0.45479          osd.32              up   1.00000  1.00000
+-13          4.54849      host ceph-tower3                             
+ 13    hdd   0.90970          osd.13              up   1.00000  1.00000
+ 15    hdd   0.90970          osd.15              up   1.00000  1.00000
+ 16    hdd   0.90970          osd.16              up   1.00000  1.00000
+ 17    hdd   0.90970          osd.17              up   1.00000  1.00000
+ 36    hdd   0.90970          osd.36              up   1.00000  1.00000
+-17         10.00648      host ceph-tower7                             
+ 14    hdd   5.45799          osd.14              up   1.00000  1.00000
+ 26    hdd   0.90970          osd.26              up   1.00000  1.00000
+ 27    hdd   0.90970          osd.27              up   1.00000  1.00000
+ 28    hdd   0.90970          osd.28              up   1.00000  1.00000
+ 20    ssd   1.81940          osd.20              up   1.00000  1.00000
+-19          8.47818      host ceph-tower8                             
+ 22    hdd   0.90970          osd.22              up   1.00000  1.00000
+ 23    hdd   5.45799          osd.23              up   1.00000  1.00000
+ 33    hdd   0.29109          osd.33              up   1.00000  1.00000
+ 18    ssd   1.81940          osd.18              up   1.00000  1.00000
+ -5         10.91606      host huse-storage                            
+  1    hdd   3.63869          osd.1               up   1.00000  1.00000
+  2    hdd   3.63869          osd.2               up   1.00000  1.00000
+  3    hdd   3.63869          osd.3               up   1.00000  1.00000
+ -3         21.83191      host munin-herner                            
+  5    hdd   2.72899          osd.5               up   1.00000  1.00000
+  6    hdd   2.72899          osd.6               up   1.00000  1.00000
+  7    hdd   2.72899          osd.7               up   1.00000  1.00000
+  8    hdd   2.72899          osd.8               up   1.00000  1.00000
+  9    hdd   2.72899          osd.9               up   1.00000  1.00000
+ 25    hdd   2.72899          osd.25              up   1.00000  1.00000
+ 34    hdd   2.72899          osd.34              up   1.00000  1.00000
+ 35    hdd   2.72899          osd.35              up   1.00000  1.00000
+ -9         14.55478      host tower-storage                           
+  0    hdd   7.27739          osd.0               up   1.00000  1.00000
+ 10    hdd   7.27739          osd.10              up   1.00000  1.00000
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:44Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ceph config dump (net params)
+  CMD   : bash -c ceph config dump | grep -iE 'public_network|cluster_network|ms_bind' || true
+  START : 2026-02-27T11:53:44Z
+--------------------------------------------------------------------------------
+global                                       advanced  cluster_network                         192.168.20.0/24                                                                            * 
+global                                       advanced  public_network                          172.31.255.0/24                                                                            * 
+mon                                          advanced  public_network                          172.31.255.0/24                                                                            * 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:45Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ceph osd metadata (OSD 0)
+  CMD   : bash -c ceph osd metadata 0 2>/dev/null | head -n 200 || true
+  START : 2026-02-27T11:53:45Z
+--------------------------------------------------------------------------------
+{
+    "id": 0,
+    "arch": "x86_64",
+    "back_addr": "[v2:192.168.20.104:6800/723948337,v1:192.168.20.104:6801/723948337]",
+    "back_iface": "",
+    "bluefs": "1",
+    "bluefs_dedicated_db": "0",
+    "bluefs_dedicated_wal": "0",
+    "bluefs_single_shared_device": "1",
+    "bluestore_allocation_from_file": "0",
+    "bluestore_bdev_access_mode": "blk",
+    "bluestore_bdev_block_size": "4096",
+    "bluestore_bdev_dev_node": "/dev/dm-0",
+    "bluestore_bdev_devices": "sda",
+    "bluestore_bdev_driver": "KernelDevice",
+    "bluestore_bdev_optimal_io_size": "0",
+    "bluestore_bdev_partition_path": "/dev/dm-0",
+    "bluestore_bdev_rotational": "1",
+    "bluestore_bdev_size": "8001561821184",
+    "bluestore_bdev_support_discard": "0",
+    "bluestore_bdev_type": "hdd",
+    "bluestore_min_alloc_size": "4096",
+    "ceph_release": "squid",
+    "ceph_version": "ceph version 19.2.2 (0eceb0defba60152a8182f7bd87d164b639885b8) squid (stable)",
+    "ceph_version_short": "19.2.2",
+    "ceph_version_when_created": "ceph version 17.2.7 (b12291d110049b2f35e32e0de30d70e9a4c060d2) quincy (stable)",
+    "container_hostname": "tower-storage",
+    "container_image": "quay.io/ceph/ceph@sha256:8214ebff6133ac27d20659038df6962dbf9d77da21c9438a296b2e2059a56af6",
+    "cpu": "Intel(R) Core(TM) i5-6600 CPU @ 3.30GHz",
+    "created_at": "2025-07-23T11:26:45.073998Z",
+    "default_device_class": "hdd",
+    "device_ids": "sda=ST8000DM004-2U9188_ZR14MWW9",
+    "device_paths": "sda=/dev/disk/by-path/pci-0000:00:17.0-ata-1",
+    "devices": "sda",
+    "distro": "centos",
+    "distro_description": "CentOS Stream 9",
+    "distro_version": "9",
+    "front_addr": "[v2:172.31.255.4:6804/720948337,v1:172.31.255.4:6805/720948337]",
+    "front_iface": "",
+    "hb_back_addr": "[v2:192.168.20.104:6806/720948337,v1:192.168.20.104:6807/720948337]",
+    "hb_front_addr": "[v2:172.31.255.4:6806/720948337,v1:172.31.255.4:6807/720948337]",
+    "hostname": "tower-storage",
+    "journal_rotational": "1",
+    "kernel_description": "#1 SMP Debian 5.10.237-1 (2025-05-19)",
+    "kernel_version": "5.10.0-35-amd64",
+    "mem_swap_kb": "1000444",
+    "mem_total_kb": "32759452",
+    "network_numa_unknown_ifaces": "back_iface,front_iface",
+    "objectstore_numa_unknown_devices": "sda",
+    "os": "Linux",
+    "osd_data": "/var/lib/ceph/osd/ceph-0",
+    "osd_objectstore": "bluestore",
+    "osdspec_affinity": "cost_capacity",
+    "rotational": "1"
+}
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:46Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ceph device ls
+  CMD   : ceph device ls
+  START : 2026-02-27T11:53:46Z
+--------------------------------------------------------------------------------
+DEVICE                                    HOST:DEV           DAEMONS           WEAR  LIFE EXPECTANCY
+CT2000BX500SSD1_2019E2A10B20              ceph-tower8:sdd    osd.18              3%                 
+CT2000BX500SSD1_2019E2A10D20              ceph-tower7:sdf    osd.20              0%                 
+HGST_HUS726T4TALE6L4_V1JPUAYG             huse-storage:sdb   osd.1                                  
+HGST_HUS726T4TALE6L4_V6GVXL7R             huse-storage:sdd   osd.3                                  
+HGST_HUS726T4TALE6L4_V6GW2L0R             huse-storage:sda   mon.huse-storage                       
+HGST_HUS726T4TALE6L4_VBGNJP9F             huse-storage:sdc   osd.2                                  
+Intenso_SSD_SATAIII_AA000000000000000921  munin-herner:sda   mon.munin-herner   35%                 
+MB1000GCWCV_Z1W5FFEW                      ceph-tower7:sdd    osd.27                                 
+MB1000GCWCV_Z1W5GEVA                      ceph-tower7:sde    osd.28                                 
+QEMU_HARDDISK_29715644                    CephMaster1:sda    mon.CephMaster1                        
+QEMU_HARDDISK_29715645                    CephClient2:sda    mon.CephClient2                        
+QEMU_HARDDISK_29715646                    CephClient1:sda    mon.CephClient1                        
+ST1000DM003-1CH162_S1DAHET4               ceph-tower3:sdb    osd.16                                 
+ST1000DM003-1CH162_S1DALNAB               ceph-tower3:sdf    osd.17                                 
+ST1000DM003-1CH162_S1DAQZWE               ceph-tower3:sde    osd.15                                 
+ST1000DM003-1ER162_Z4Y9FM4N               ceph-tower7:sdc    osd.26                                 
+ST3000DM007-1WY10G_WFN34WVN               ceph-tower10:sde   osd.21                                 
+ST3500413AS_Z2AN2MMA                      ceph-tower10:sdb   osd.29                                 
+ST500DM002-1BD142_Z3TL8KT5                ceph-tower10:sdd   osd.31                                 
+ST500DM002-1BD142_Z3TL8KXA                ceph-tower10:sdf   osd.32                                 
+ST6000NM021A-2R7101_WRG06WD6              ceph-tower8:sde    osd.23                                 
+ST6000NM021A-2R7101_WRG06WDQ              ceph-tower7:sdb    osd.14                                 
+ST8000DM004-2U9188_ZR14MWDE               tower-storage:sdc  osd.10                                 
+ST8000DM004-2U9188_ZR14MWW9               tower-storage:sda  osd.0                                  
+ST9750420AS_6WS178DV                      ceph-tower10:sdc   osd.30                                 
+TOSHIBA_DT01ACA300_45Q1DW2GS              CephTower2:sdb     osd.12                                 
+TOSHIBA_HDWD130_59N9L52AS                 munin-herner:sde   osd.6                                  
+TOSHIBA_HDWD130_59O9AHDAS                 munin-herner:sdh   osd.25                                 
+TOSHIBA_HDWD130_59O9AJ3AS                 munin-herner:sdg   osd.8                                  
+TOSHIBA_HDWD130_59O9AK4AS                 munin-herner:sdf   osd.7                                  
+TOSHIBA_HDWD130_59O9KZDAS                 munin-herner:sdb   osd.34                                 
+TOSHIBA_HDWD130_59O9KZJAS                 munin-herner:sdd   osd.5                                  
+TOSHIBA_HDWD130_59O9KZWAS                 munin-herner:sdi   osd.9                                  
+TOSHIBA_HDWD130_59Q9P24AS                 munin-herner:sdc   osd.35                                 
+WDC_WD10EACS-07D6B0_WD-WCAU43369764       ceph-tower8:sdb    osd.22                                 
+WDC_WD10EALX-009BA0_WD-WMATR0748000       ceph-tower3:sdd    osd.36                                 
+WDC_WD10EALX-009BA0_WD-WMATR0834730       ceph-tower3:sdc    osd.13                                 
+WDC_WD10EFRX-68FYTN0_WD-WCC4J1VVJE14      CephTower2:sdd     osd.11                                 
+WDC_WD10EFRX-68FYTN0_WD-WCC4J2AHH799      Ceph-Tower4:sdc    osd.4                                  
+WDC_WD10EFRX-68FYTN0_WD-WCC4J3AKD2NK      Ceph-Tower5:sdc    osd.19                                 
+WDC_WD3200AAJS-08B4A0_WD-WMAT14617229     ceph-tower8:sdc    osd.33                                 
+WDC_WD5003ABYX-50WERA1_WD-WMAYP4791975    CephTower2:sda     osd.24                                 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:46Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 9  BENCHMARKS
+  TIME    : 2026-02-27T11:53:46Z
+================================================================================
+
+[NOTE]  Benchmarks can affect system performance. Run during a maintenance window.
+
+--------------------------------------------------------------------------------
+  TASK  : sysbench – CPU  (max-prime=20000)
+  CMD   : sysbench cpu --cpu-max-prime=20000 run
+  START : 2026-02-27T11:53:46Z
+--------------------------------------------------------------------------------
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 20000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   406.79
+
+General statistics:
+    total time:                          10.0012s
+    total number of events:              4069
+
+Latency (ms):
+         min:                                    2.42
+         avg:                                    2.46
+         max:                                    3.35
+         95th percentile:                        2.57
+         sum:                                 9990.28
+
+Threads fairness:
+    events (avg/stddev):           4069.0000/0.00
+    execution time (avg/stddev):   9.9903/0.00
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:53:56Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : sysbench – Memory
+  CMD   : sysbench memory run
+  START : 2026-02-27T11:53:56Z
+--------------------------------------------------------------------------------
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 3324669 (332399.00 per second)
+
+3246.75 MiB transferred (324.61 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0001s
+    total number of events:              3324669
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.05
+         95th percentile:                        0.00
+         sum:                                 3367.32
+
+Threads fairness:
+    events (avg/stddev):           3324669.0000/0.00
+    execution time (avg/stddev):   3.3673/0.00
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:54:06Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+[NOTE]  FIO writes temporary files under /tmp. Adjust --directory/--size if needed.
+
+--------------------------------------------------------------------------------
+  TASK  : fio – sequential write (1 M bs, 2 G, 30 s)
+  CMD   : fio --name=seqwrite --rw=write --bs=1M --size=2G --numjobs=1 --runtime=30 --time_based --group_reporting --directory=/tmp
+  START : 2026-02-27T11:54:06Z
+--------------------------------------------------------------------------------
+seqwrite: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.33
+Starting 1 process
+seqwrite: Laying out IO file (1 file / 2048MiB)
+
+seqwrite: (groupid=0, jobs=1): err= 0: pid=804681: Fri Feb 27 12:54:37 2026
+  write: IOPS=129, BW=129MiB/s (135MB/s)(3876MiB/30003msec); 0 zone resets
+    clat (usec): min=280, max=126784, avg=3091.04, stdev=5866.50
+     lat (usec): min=289, max=126802, avg=3107.97, stdev=5869.41
+    clat percentiles (usec):
+     |  1.00th=[   289],  5.00th=[   293], 10.00th=[   297], 20.00th=[   306],
+     | 30.00th=[   310], 40.00th=[   318], 50.00th=[   334], 60.00th=[   375],
+     | 70.00th=[   717], 80.00th=[  2704], 90.00th=[ 15533], 95.00th=[ 15664],
+     | 99.00th=[ 15795], 99.50th=[ 19530], 99.90th=[ 19792], 99.95th=[ 68682],
+     | 99.99th=[126354]
+   bw (  KiB/s): min=28672, max=2519040, per=100.00%, avg=326519.75, stdev=641609.04, samples=24
+   iops        : min=   28, max= 2460, avg=318.83, stdev=626.47, samples=24
+  lat (usec)   : 500=64.81%, 750=10.81%, 1000=2.24%
+  lat (msec)   : 2=1.70%, 4=0.70%, 10=0.88%, 20=18.78%, 50=0.03%
+  lat (msec)   : 100=0.03%, 250=0.03%
+  cpu          : usr=0.13%, sys=8.35%, ctx=10293, majf=0, minf=12
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,3876,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=129MiB/s (135MB/s), 129MiB/s-129MiB/s (135MB/s-135MB/s), io=3876MiB (4064MB), run=30003-30003msec
+
+Disk stats (read/write):
+  sda: ios=1/3927, merge=0/325, ticks=14/220582, in_queue=224120, util=98.10%
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:54:48Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : fio – random read/write (4 k bs, 2 G × 4 jobs, 30 s)
+  CMD   : fio --name=randrw4k --rw=randrw --bs=4k --size=2G --numjobs=4 --runtime=30 --time_based --group_reporting --directory=/tmp
+  START : 2026-02-27T11:54:48Z
+--------------------------------------------------------------------------------
+randrw4k: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.33
+Starting 4 processes
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+
+randrw4k: (groupid=0, jobs=4): err= 0: pid=804891: Fri Feb 27 12:57:13 2026
+  read: IOPS=81, BW=324KiB/s (332kB/s)(9732KiB/30033msec)
+    clat (msec): min=11, max=226, avg=49.29, stdev=28.88
+     lat (msec): min=11, max=226, avg=49.29, stdev=28.88
+    clat percentiles (msec):
+     |  1.00th=[   15],  5.00th=[   17], 10.00th=[   20], 20.00th=[   26],
+     | 30.00th=[   29], 40.00th=[   36], 50.00th=[   44], 60.00th=[   50],
+     | 70.00th=[   59], 80.00th=[   71], 90.00th=[   89], 95.00th=[  107],
+     | 99.00th=[  148], 99.50th=[  163], 99.90th=[  182], 99.95th=[  209],
+     | 99.99th=[  226]
+   bw (  KiB/s): min=  192, max=  448, per=99.99%, avg=324.89, stdev=15.11, samples=237
+   iops        : min=   48, max=  112, avg=81.22, stdev= 3.78, samples=237
+  write: IOPS=85, BW=343KiB/s (351kB/s)(10.1MiB/30033msec); 0 zone resets
+    clat (usec): min=4, max=19258, avg=29.44, stdev=379.55
+     lat (usec): min=5, max=19261, avg=32.33, stdev=379.57
+    clat percentiles (usec):
+     |  1.00th=[    8],  5.00th=[   10], 10.00th=[   11], 20.00th=[   12],
+     | 30.00th=[   12], 40.00th=[   13], 50.00th=[   19], 60.00th=[   29],
+     | 70.00th=[   30], 80.00th=[   33], 90.00th=[   35], 95.00th=[   36],
+     | 99.00th=[   47], 99.50th=[   55], 99.90th=[  635], 99.95th=[  652],
+     | 99.99th=[19268]
+   bw (  KiB/s): min=   64, max=  824, per=100.00%, avg=344.90, stdev=40.26, samples=237
+   iops        : min=   16, max=  206, avg=86.23, stdev=10.07, samples=237
+  lat (usec)   : 10=3.75%, 20=22.28%, 50=25.00%, 100=0.32%, 250=0.02%
+  lat (usec)   : 750=0.04%
+  lat (msec)   : 20=5.73%, 50=23.68%, 100=16.31%, 250=2.87%
+  cpu          : usr=0.04%, sys=0.22%, ctx=2450, majf=0, minf=53
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=2433,2576,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=324KiB/s (332kB/s), 324KiB/s-324KiB/s (332kB/s-332kB/s), io=9732KiB (9966kB), run=30033-30033msec
+  WRITE: bw=343KiB/s (351kB/s), 343KiB/s-343KiB/s (351kB/s-351kB/s), io=10.1MiB (10.6MB), run=30033-30033msec
+
+Disk stats (read/write):
+  sda: ios=2424/53, merge=0/145, ticks=133885/2856, in_queue=137941, util=98.76%
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:57:13Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  END OF REPORT
+  TIME : 2026-02-27T11:57:13Z
+================================================================================
+

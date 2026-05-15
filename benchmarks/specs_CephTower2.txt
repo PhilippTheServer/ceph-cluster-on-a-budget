@@ -1,0 +1,1118 @@
+================================================================================
+  Ceph Node Specification & Benchmark Report
+  Generated : 2026-02-27T11:40:15Z
+  Host      : CephTower2  (CephTower2)
+  User      : root (uid=0)
+  Log file  : specs_CephTower2_20260227T114015Z.txt
+================================================================================
+
+================================================================================
+  SECTION : 0  DEPENDENCY BOOTSTRAP
+  TIME    : 2026-02-27T11:40:15Z
+================================================================================
+
+
+================================================================================
+  SECTION : 1  NODE IDENTIFICATION
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : Timestamp (UTC)
+  CMD   : date -u +%Y-%m-%dT%H:%M:%SZ
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : hostnamectl
+  CMD   : hostnamectl
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+ Static hostname: CephTower2
+       Icon name: computer-desktop
+         Chassis: desktop 🖥️
+      Machine ID: 4a85ba0dd8ab44ef859a49ca58101925
+         Boot ID: 73f8d17c187c4eb9be655e8289aef9d9
+Operating System: Debian GNU/Linux 12 (bookworm)
+          Kernel: Linux 6.1.0-37-amd64
+    Architecture: x86-64
+ Hardware Vendor: MSI
+  Hardware Model: MS-7845
+Firmware Version: V1.12
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : FQDN
+  CMD   : hostname -f
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+CephTower2
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Machine ID
+  CMD   : cat /etc/machine-id
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+4a85ba0dd8ab44ef859a49ca58101925
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Kernel / uname
+  CMD   : uname -a
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+Linux CephTower2 6.1.0-37-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.140-1 (2025-05-22) x86_64 GNU/Linux
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Uptime
+  CMD   : uptime
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+ 12:40:26 up 66 days, 23:03,  2 users,  load average: 0,24, 0,16, 0,10
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 2  SYSTEM  (MANUFACTURER / MODEL / SERIAL)
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – System
+  CMD   : dmidecode -t system
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+
+Handle 0x0001, DMI type 1, 27 bytes
+System Information
+	Manufacturer: MSI
+	Product Name: MS-7845
+	Version: 1.0
+	Serial Number: To be filled by O.E.M.
+	UUID: aaaaaaaa-aaaa-aaaa-aaaa-d43d7ef5a9be
+	Wake-up Type: Power Switch
+	SKU Number: To be filled by O.E.M.
+	Family: To be filled by O.E.M.
+
+Handle 0x0022, DMI type 12, 5 bytes
+System Configuration Options
+	Option 1: To Be Filled By O.E.M.
+
+Handle 0x0024, DMI type 32, 20 bytes
+System Boot Information
+	Status: No errors detected
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – BIOS
+  CMD   : dmidecode -t bios
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+
+Handle 0x0000, DMI type 0, 24 bytes
+BIOS Information
+	Vendor: American Megatrends Inc.
+	Version: V1.12
+	Release Date: 05/19/2015
+	Address: 0xF0000
+	Runtime Size: 64 kB
+	ROM Size: 8 MB
+	Characteristics:
+		PCI is supported
+		BIOS is upgradeable
+		BIOS shadowing is allowed
+		Boot from CD is supported
+		Selectable boot is supported
+		BIOS ROM is socketed
+		EDD is supported
+		5.25"/1.2 MB floppy services are supported (int 13h)
+		3.5"/720 kB floppy services are supported (int 13h)
+		3.5"/2.88 MB floppy services are supported (int 13h)
+		Print screen service is supported (int 5h)
+		8042 keyboard services are supported (int 9h)
+		Serial services are supported (int 14h)
+		Printer services are supported (int 17h)
+		ACPI is supported
+		USB legacy is supported
+		BIOS boot specification is supported
+		Targeted content distribution is supported
+		UEFI is supported
+	BIOS Revision: 4.6
+
+Handle 0x004F, DMI type 13, 22 bytes
+BIOS Language Information
+	Language Description Format: Long
+	Installable Languages: 1
+		en|US|iso8859-1
+	Currently Installed Language: en|US|iso8859-1
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 3  CPU
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : lscpu
+  CMD   : lscpu
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+Architecture:                            x86_64
+CPU op-mode(s):                          32-bit, 64-bit
+Address sizes:                           39 bits physical, 48 bits virtual
+Byte Order:                              Little Endian
+CPU(s):                                  8
+On-line CPU(s) list:                     0-7
+Vendor ID:                               GenuineIntel
+BIOS Vendor ID:                          Intel
+Model name:                              Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+BIOS Model name:                         Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz Fill By OEM CPU @ 3.4GHz
+BIOS CPU family:                         198
+CPU family:                              6
+Model:                                   60
+Thread(s) per core:                      2
+Core(s) per socket:                      4
+Socket(s):                               1
+Stepping:                                3
+CPU(s) scaling MHz:                      96%
+CPU max MHz:                             3900,0000
+CPU min MHz:                             800,0000
+BogoMIPS:                                6799,81
+Flags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+Virtualization:                          VT-x
+L1d cache:                               128 KiB (4 instances)
+L1i cache:                               128 KiB (4 instances)
+L2 cache:                                1 MiB (4 instances)
+L3 cache:                                8 MiB (1 instance)
+NUMA node(s):                            1
+NUMA node0 CPU(s):                       0-7
+Vulnerability Gather data sampling:      Not affected
+Vulnerability Indirect target selection: Not affected
+Vulnerability Itlb multihit:             KVM: Mitigation: VMX disabled
+Vulnerability L1tf:                      Mitigation; PTE Inversion; VMX conditional cache flushes, SMT vulnerable
+Vulnerability Mds:                       Mitigation; Clear CPU buffers; SMT vulnerable
+Vulnerability Meltdown:                  Mitigation; PTI
+Vulnerability Mmio stale data:           Unknown: No mitigations
+Vulnerability Reg file data sampling:    Not affected
+Vulnerability Retbleed:                  Not affected
+Vulnerability Spec rstack overflow:      Not affected
+Vulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl
+Vulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected
+Vulnerability Srbds:                     Mitigation; Microcode
+Vulnerability Tsx async abort:           Not affected
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : /proc/cpuinfo (first 200 lines)
+  CMD   : bash -c head -n 200 /proc/cpuinfo
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3787.113
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3791.367
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3746.095
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3787.534
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3787.109
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3785.104
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4770 CPU @ 3.40GHz
+stepping	: 3
+microcode	: 0x28
+cpu MHz		: 3784.186
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm cpuid_fault invpcid_single pti ssbd ibrs ibpb stibp tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt dtherm ida arat pln pts md_clear flush_l1d
+vmx flags	: vnmi preemption_timer invvpid ept_x_only ept_ad ept_1gb flexpriority tsc_offset vtpr mtf vapic ept vpid unrestricted_guest ple shadow_vmcs
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs itlb_multihit srbds mmio_unknown
+bogomips	: 6799.81
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 4  MEMORY (RAM)
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : free -h
+  CMD   : free -h
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+              gesamt       benutzt     frei      gemns.  Puffer/Cache verfügbar
+Speicher:       15Gi       4,6Gi       357Mi       9,3Mi        10Gi        10Gi
+Swap:          976Mi       339Mi       637Mi
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : DMI – Memory Devices
+  CMD   : dmidecode -t memory
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+# dmidecode 3.4
+Getting SMBIOS data from sysfs.
+SMBIOS 2.8 present.
+
+Handle 0x0041, DMI type 16, 23 bytes
+Physical Memory Array
+	Location: System Board Or Motherboard
+	Use: System Memory
+	Error Correction Type: None
+	Maximum Capacity: 32 GB
+	Error Information Handle: Not Provided
+	Number Of Devices: 4
+
+Handle 0x0042, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0041
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: ChannelA-DIMM0
+	Bank Locator: BANK 0
+	Type: Unknown
+	Type Detail: None
+
+Handle 0x0043, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0041
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 8 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: ChannelA-DIMM1
+	Bank Locator: BANK 1
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: 0215
+	Serial Number: 00000000
+	Asset Tag: 9876543210
+	Part Number: CMZ16GX3M2A1600C9 
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: 1.5 V
+	Maximum Voltage: 1.5 V
+	Configured Voltage: 1.5 V
+
+Handle 0x0045, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0041
+	Error Information Handle: Not Provided
+	Total Width: Unknown
+	Data Width: Unknown
+	Size: No Module Installed
+	Form Factor: DIMM
+	Set: None
+	Locator: ChannelB-DIMM0
+	Bank Locator: BANK 2
+	Type: Unknown
+	Type Detail: None
+
+Handle 0x0046, DMI type 17, 40 bytes
+Memory Device
+	Array Handle: 0x0041
+	Error Information Handle: Not Provided
+	Total Width: 64 bits
+	Data Width: 64 bits
+	Size: 8 GB
+	Form Factor: DIMM
+	Set: None
+	Locator: ChannelB-DIMM1
+	Bank Locator: BANK 3
+	Type: DDR3
+	Type Detail: Synchronous
+	Speed: 1600 MT/s
+	Manufacturer: 0215
+	Serial Number: 00000000
+	Asset Tag: 9876543210
+	Part Number: CMZ16GX3M2A1600C9 
+	Rank: 2
+	Configured Memory Speed: 1600 MT/s
+	Minimum Voltage: 1.5 V
+	Maximum Voltage: 1.5 V
+	Configured Voltage: 1.5 V
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 5  STORAGE OVERVIEW
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : lsblk
+  CMD   : lsblk -a -o NAME,TYPE,SIZE,MODEL,SERIAL,TRAN,ROTA,MOUNTPOINT,FSTYPE
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+NAME                                                                                                  TYPE   SIZE MODEL                  SERIAL          TRAN   ROTA MOUNTPOINT FSTYPE
+loop0                                                                                                 loop     0B                                                  1            
+loop1                                                                                                 loop     0B                                                  1            
+loop2                                                                                                 loop     0B                                                  1            
+loop3                                                                                                 loop     0B                                                  1            
+loop4                                                                                                 loop     0B                                                  1            
+loop5                                                                                                 loop     0B                                                  1            
+loop6                                                                                                 loop     0B                                                  1            
+loop7                                                                                                 loop     0B                                                  1            
+sda                                                                                                   disk 465,8G WDC WD5003ABYX-50WERA1 WD-WMAYP4791975 sata      1            LVM2_member
+└─ceph--601e6180--f78d--42d6--880b--fd57742c1fe9-osd--block--8ef4a3ef--2bc8--4e6c--8fa8--df42bde51d2a lvm  465,8G                                                  1            ceph_bluestore
+sdb                                                                                                   disk   2,7T TOSHIBA DT01ACA300     45Q1DW2GS       sata      1            LVM2_member
+└─ceph--b3c44633--3631--4041--b307--311f21afd2a8-osd--block--b1fa750f--466d--455e--835c--2d8eba6b7147 lvm    2,7T                                                  1            ceph_bluestore
+sdc                                                                                                   disk 232,9G CT250MX500SSD1         1903E1E37CFF    sata      0            
+├─sdc1                                                                                                part   512M                                                  0 /boot/efi  vfat
+├─sdc2                                                                                                part 231,4G                                                  0 /          ext4
+└─sdc3                                                                                                part   977M                                                  0 [SWAP]     swap
+sdd                                                                                                   disk 931,5G WDC WD10EFRX-68FYTN0   WD-WCC4J1VVJE14 sata      1            LVM2_member
+└─ceph--f3821cf5--8ee7--43db--8e8e--133bf66e9fc8-osd--block--02ebee44--3dd2--45ed--b982--163522deaedd lvm  931,5G                                                  1            ceph_bluestore
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : Block devices – /dev/disk/by-id
+  CMD   : bash -c ls -l /dev/disk/by-id 2>/dev/null || true
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+insgesamt 0
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 ata-CT250MX500SSD1_1903E1E37CFF -> ../../sdc
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 ata-CT250MX500SSD1_1903E1E37CFF-part1 -> ../../sdc1
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 ata-CT250MX500SSD1_1903E1E37CFF-part2 -> ../../sdc2
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 ata-CT250MX500SSD1_1903E1E37CFF-part3 -> ../../sdc3
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 ata-TOSHIBA_DT01ACA300_45Q1DW2GS -> ../../sdb
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 ata-WDC_WD10EFRX-68FYTN0_WD-WCC4J1VVJE14 -> ../../sdd
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 ata-WDC_WD5003ABYX-50WERA1_WD-WMAYP4791975 -> ../../sda
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-name-ceph--601e6180--f78d--42d6--880b--fd57742c1fe9-osd--block--8ef4a3ef--2bc8--4e6c--8fa8--df42bde51d2a -> ../../dm-0
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-name-ceph--b3c44633--3631--4041--b307--311f21afd2a8-osd--block--b1fa750f--466d--455e--835c--2d8eba6b7147 -> ../../dm-1
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-name-ceph--f3821cf5--8ee7--43db--8e8e--133bf66e9fc8-osd--block--02ebee44--3dd2--45ed--b982--163522deaedd -> ../../dm-2
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-uuid-LVM-29WIDRf6YbRYqZYrlgqTjmsxUYoQc3kwZHeLEGEW8wuxyCWZ0ptI7RhQaMdR6ZZe -> ../../dm-2
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-uuid-LVM-riRB2keeI70xBr2TLDHgki3N7pUZhT9tUdcelNlRq2D82Yy7XdqkPsoNu027Gmck -> ../../dm-1
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 dm-uuid-LVM-zxK8WEdeVSbIBvnn6Ls83ewzcbwvelY3tvuoCDIYMvCIUg50E8nqKuFBct1K4xYy -> ../../dm-0
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 lvm-pv-uuid-OcMwMx-e7lF-VuND-FJSV-uYJG-Sdc8-YpF1Pf -> ../../sdb
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 lvm-pv-uuid-QRWn29-gSnt-NCyG-28ap-Agk2-MhTn-Ks0PUN -> ../../sdd
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 lvm-pv-uuid-TcZNmm-cL1D-AlR0-f8ZC-gdmq-S6aj-2RXjeF -> ../../sda
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 wwn-0x5000039fe3c0a4b2 -> ../../sdb
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 wwn-0x50014ee0036c5da4 -> ../../sda
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 wwn-0x50014ee20d39ec28 -> ../../sdd
+lrwxrwxrwx 1 root root  9 18. Jan 23:08 wwn-0x500a0751e1e37cff -> ../../sdc
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 wwn-0x500a0751e1e37cff-part1 -> ../../sdc1
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 wwn-0x500a0751e1e37cff-part2 -> ../../sdc2
+lrwxrwxrwx 1 root root 10 18. Jan 23:08 wwn-0x500a0751e1e37cff-part3 -> ../../sdc3
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 6  STORAGE DETAILS / HEALTH
+  TIME    : 2026-02-27T11:40:26Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : nvme list
+  CMD   : nvme list
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+Node                  Generic               SN                   Model                                    Namespace Usage                      Format           FW Rev  
+--------------------- --------------------- -------------------- ---------------------------------------- --------- -------------------------- ---------------- --------
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sda
+  CMD   : smartctl -H /dev/sda
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sda (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sda' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+Model Family:     Western Digital RE4
+Device Model:     WDC WD5003ABYX-50WERA1
+Serial Number:    WD-WMAYP4791975
+User Capacity:    500.107.862.016 bytes [500 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    7200 rpm
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 6.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   066   066   000    Old_age   Always       -       25529
+194 Temperature_Celsius     0x0022   112   092   000    Old_age   Always       -       31
+196 Reallocated_Event_Count 0x0032   200   200   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0032   200   200   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   200   200   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:26Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sdb
+  CMD   : smartctl -H /dev/sdb
+  START : 2026-02-27T11:40:26Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:27Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sdb (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sdb' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:40:27Z
+--------------------------------------------------------------------------------
+Model Family:     Toshiba 3.5" DT01ACA... Desktop HDD
+Device Model:     TOSHIBA DT01ACA300
+Serial Number:    45Q1DW2GS
+User Capacity:    3.000.592.982.016 bytes [3,00 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    7200 rpm
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 6.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   100   100   005    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0012   099   099   000    Old_age   Always       -       11706
+194 Temperature_Celsius     0x0002   176   176   000    Old_age   Always       -       34 (Min/Max 17/51)
+196 Reallocated_Event_Count 0x0032   100   100   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0022   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0008   100   100   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sdc
+  CMD   : smartctl -H /dev/sdc
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sdc (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sdc' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+Model Family:     Crucial/Micron Client SSDs
+Device Model:     CT250MX500SSD1
+Serial Number:    1903E1E37CFF
+User Capacity:    250.059.350.016 bytes [250 GB]
+Sector Size:      512 bytes logical/physical
+Rotation Rate:    Solid State Device
+SATA Version is:  SATA 3.3, 6.0 Gb/s (current: 6.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  9 Power_On_Hours          0x0032   100   100   000    Old_age   Always       -       10855
+183 SATA_Interfac_Downshift 0x0032   100   100   000    Old_age   Always       -       0
+194 Temperature_Celsius     0x0022   067   044   000    Old_age   Always       -       33 (Min/Max 0/56)
+196 Reallocated_Event_Count 0x0032   100   100   000    Old_age   Always       -       0
+197 Current_Pending_ECC_Cnt 0x0032   100   100   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   100   100   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Health – /dev/sdd
+  CMD   : smartctl -H /dev/sdd
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+smartctl 7.3 2022-02-28 r5338 [x86_64-linux-6.1.0-37-amd64] (local build)
+Copyright (C) 2002-22, Bruce Allen, Christian Franke, www.smartmontools.org
+
+=== START OF READ SMART DATA SECTION ===
+SMART overall-health self-assessment test result: PASSED
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : SMART Summary – /dev/sdd (key attributes)
+  CMD   : bash -c  smartctl -a '/dev/sdd' | grep -iE 'Model|Serial|Rotation|SATA|SAS|NVMe|User Capacity|Sector Size|Power_On|Temperature|Reallocated|Pending|Offline_Uncorrectable|Overall|SMART Health|Percent_Lifetime_Used|Data Units Written|Media and Data Integrity Errors' || true
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+Model Family:     Western Digital Red
+Device Model:     WDC WD10EFRX-68FYTN0
+Serial Number:    WD-WCC4J1VVJE14
+User Capacity:    1.000.204.886.016 bytes [1,00 TB]
+Sector Sizes:     512 bytes logical, 4096 bytes physical
+Rotation Rate:    5400 rpm
+SATA Version is:  SATA 3.0, 6.0 Gb/s (current: 6.0 Gb/s)
+SMART overall-health self-assessment test result: PASSED
+  5 Reallocated_Sector_Ct   0x0033   200   200   140    Pre-fail  Always       -       0
+  9 Power_On_Hours          0x0032   042   042   000    Old_age   Always       -       42927
+194 Temperature_Celsius     0x0022   115   098   000    Old_age   Always       -       28
+196 Reallocated_Event_Count 0x0032   200   200   000    Old_age   Always       -       0
+197 Current_Pending_Sector  0x0032   200   200   000    Old_age   Always       -       0
+198 Offline_Uncorrectable   0x0030   100   253   000    Old_age   Offline      -       0
+If Selective self-test is pending on power-up, resume after 0 minute delay.
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 7  NETWORK
+  TIME    : 2026-02-27T11:40:28Z
+================================================================================
+
+
+--------------------------------------------------------------------------------
+  TASK  : ip link (brief)
+  CMD   : ip -br link
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+lo               UNKNOWN        00:00:00:00:00:00 <LOOPBACK,UP,LOWER_UP> 
+enp2s0           UP             d4:3d:7e:f5:a9:be <BROADCAST,MULTICAST,UP,LOWER_UP> 
+wg0              UNKNOWN        <POINTOPOINT,NOARP,UP,LOWER_UP> 
+docker0          DOWN           92:b3:46:d9:04:a8 <NO-CARRIER,BROADCAST,MULTICAST,UP> 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ip addr (brief)
+  CMD   : ip -br addr
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+lo               UNKNOWN        127.0.0.1/8 ::1/128 
+enp2s0           UP             10.12.138.66/23 192.168.20.105/24 fe80::d63d:7eff:fef5:a9be/64 
+wg0              UNKNOWN        172.31.255.28/24 
+docker0          DOWN           172.17.0.1/16 
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – docker0
+  CMD   : ethtool docker0
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+Settings for docker0:
+	Supported ports: [  ]
+	Supported link modes:   Not reported
+	Supported pause frame use: No
+	Supports auto-negotiation: No
+	Supported FEC modes: Not reported
+	Advertised link modes:  Not reported
+	Advertised pause frame use: No
+	Advertised auto-negotiation: No
+	Advertised FEC modes: Not reported
+	Speed: Unknown!
+	Duplex: Unknown! (255)
+	Auto-negotiation: off
+	Port: Other
+	PHYAD: 0
+	Transceiver: internal
+	Link detected: no
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – enp2s0
+  CMD   : ethtool enp2s0
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+Settings for enp2s0:
+	Supported ports: [ TP ]
+	Supported link modes:   10baseT/Half 10baseT/Full
+	                        100baseT/Half 100baseT/Full
+	                        1000baseT/Full
+	Supported pause frame use: Symmetric Receive-only
+	Supports auto-negotiation: Yes
+	Supported FEC modes: Not reported
+	Advertised link modes:  10baseT/Half 10baseT/Full
+	                        100baseT/Half 100baseT/Full
+	                        1000baseT/Full
+	Advertised pause frame use: Symmetric
+	Advertised auto-negotiation: Yes
+	Advertised FEC modes: Not reported
+	Speed: 1000Mb/s
+	Duplex: Full
+	Auto-negotiation: on
+	Port: Twisted Pair
+	PHYAD: 0
+	Transceiver: internal
+	MDI-X: Unknown
+        Current message level: 0x000060e4 (24804)
+                               link ifup rx_err tx_err hw wol
+	Link detected: yes
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : ethtool – wg0
+  CMD   : ethtool wg0
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+No data available
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 75  [WARN: non-zero exit]
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : PCI – network & storage controllers
+  CMD   : bash -c lspci -nn | grep -iE 'ethernet|network|infiniband|raid|sas|sata|nvme|storage' || true
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+00:1f.2 SATA controller [0106]: Intel Corporation 8 Series/C220 Series Chipset Family 6-port SATA Controller 1 [AHCI mode] [8086:8c02] (rev 05)
+02:00.0 Ethernet controller [0200]: Qualcomm Atheros Killer E220x Gigabit Ethernet Controller [1969:e091] (rev 13)
+03:00.0 SATA controller [0106]: ASMedia Technology Inc. ASM1062 Serial ATA Controller [1b21:0612] (rev 01)
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:28Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  SECTION : 8  CEPH
+  TIME    : 2026-02-27T11:40:28Z
+================================================================================
+
+[INFO]  ceph CLI not found on this node (or not in PATH) — skipping Ceph section.
+
+================================================================================
+  SECTION : 9  BENCHMARKS
+  TIME    : 2026-02-27T11:40:28Z
+================================================================================
+
+[NOTE]  Benchmarks can affect system performance. Run during a maintenance window.
+
+--------------------------------------------------------------------------------
+  TASK  : sysbench – CPU  (max-prime=20000)
+  CMD   : sysbench cpu --cpu-max-prime=20000 run
+  START : 2026-02-27T11:40:28Z
+--------------------------------------------------------------------------------
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Prime numbers limit: 20000
+
+Initializing worker threads...
+
+Threads started!
+
+CPU speed:
+    events per second:   430.47
+
+General statistics:
+    total time:                          10.0017s
+    total number of events:              4306
+
+Latency (ms):
+         min:                                    2.30
+         avg:                                    2.32
+         max:                                    3.10
+         95th percentile:                        2.39
+         sum:                                10000.66
+
+Threads fairness:
+    events (avg/stddev):           4306.0000/0.00
+    execution time (avg/stddev):   10.0007/0.00
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:38Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : sysbench – Memory
+  CMD   : sysbench memory run
+  START : 2026-02-27T11:40:38Z
+--------------------------------------------------------------------------------
+sysbench 1.0.20 (using system LuaJIT 2.1.0-beta3)
+
+Running the test with following options:
+Number of threads: 1
+Initializing random number generator from current time
+
+
+Running memory speed test with the following options:
+  block size: 1KiB
+  total size: 102400MiB
+  operation: write
+  scope: global
+
+Initializing worker threads...
+
+Threads started!
+
+Total operations: 72514501 (7250386.15 per second)
+
+70814.94 MiB transferred (7080.46 MiB/sec)
+
+
+General statistics:
+    total time:                          10.0000s
+    total number of events:              72514501
+
+Latency (ms):
+         min:                                    0.00
+         avg:                                    0.00
+         max:                                    0.06
+         95th percentile:                        0.00
+         sum:                                 4720.54
+
+Threads fairness:
+    events (avg/stddev):           72514501.0000/0.00
+    execution time (avg/stddev):   4.7205/0.00
+
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:40:48Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+[NOTE]  FIO writes temporary files under /tmp. Adjust --directory/--size if needed.
+
+--------------------------------------------------------------------------------
+  TASK  : fio – sequential write (1 M bs, 2 G, 30 s)
+  CMD   : fio --name=seqwrite --rw=write --bs=1M --size=2G --numjobs=1 --runtime=30 --time_based --group_reporting --directory=/tmp
+  START : 2026-02-27T11:40:48Z
+--------------------------------------------------------------------------------
+seqwrite: (g=0): rw=write, bs=(R) 1024KiB-1024KiB, (W) 1024KiB-1024KiB, (T) 1024KiB-1024KiB, ioengine=psync, iodepth=1
+fio-3.33
+Starting 1 process
+seqwrite: Laying out IO file (1 file / 2048MiB)
+
+seqwrite: (groupid=0, jobs=1): err= 0: pid=2023192: Fri Feb 27 12:41:19 2026
+  write: IOPS=431, BW=431MiB/s (452MB/s)(12.6GiB/30001msec); 0 zone resets
+    clat (usec): min=239, max=22714, avg=576.38, stdev=1806.68
+     lat (usec): min=244, max=22749, avg=589.13, stdev=1809.18
+    clat percentiles (usec):
+     |  1.00th=[  249],  5.00th=[  253], 10.00th=[  253], 20.00th=[  255],
+     | 30.00th=[  258], 40.00th=[  260], 50.00th=[  262], 60.00th=[  269],
+     | 70.00th=[  285], 80.00th=[  318], 90.00th=[  889], 95.00th=[ 1090],
+     | 99.00th=[13435], 99.50th=[16581], 99.90th=[19792], 99.95th=[21890],
+     | 99.99th=[22414]
+   bw (  MiB/s): min=   42, max= 3374, per=100.00%, avg=1170.29, stdev=1257.12, samples=21
+   iops        : min=   42, max= 3374, avg=1170.29, stdev=1257.12, samples=21
+  lat (usec)   : 250=1.70%, 500=83.92%, 750=2.48%, 1000=4.84%
+  lat (msec)   : 2=5.56%, 10=0.19%, 20=1.23%, 50=0.08%
+  cpu          : usr=0.54%, sys=29.19%, ctx=61270, majf=0, minf=13
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=0,12942,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+  WRITE: bw=431MiB/s (452MB/s), 431MiB/s-431MiB/s (452MB/s-452MB/s), io=12.6GiB (13.6GB), run=30001-30001msec
+
+Disk stats (read/write):
+  sdc: ios=0/25005, merge=0/7277, ticks=0/167985, in_queue=167990, util=79.31%
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:41:19Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+--------------------------------------------------------------------------------
+  TASK  : fio – random read/write (4 k bs, 2 G × 4 jobs, 30 s)
+  CMD   : fio --name=randrw4k --rw=randrw --bs=4k --size=2G --numjobs=4 --runtime=30 --time_based --group_reporting --directory=/tmp
+  START : 2026-02-27T11:41:19Z
+--------------------------------------------------------------------------------
+randrw4k: (g=0): rw=randrw, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=psync, iodepth=1
+...
+fio-3.33
+Starting 4 processes
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+randrw4k: Laying out IO file (1 file / 2048MiB)
+
+randrw4k: (groupid=0, jobs=4): err= 0: pid=2023216: Fri Feb 27 12:42:11 2026
+  read: IOPS=27.0k, BW=106MiB/s (111MB/s)(3170MiB/30001msec)
+    clat (usec): min=77, max=23780, avg=143.39, stdev=189.78
+     lat (usec): min=77, max=23780, avg=143.46, stdev=189.78
+    clat percentiles (usec):
+     |  1.00th=[   82],  5.00th=[   84], 10.00th=[   86], 20.00th=[   89],
+     | 30.00th=[   92], 40.00th=[   96], 50.00th=[  104], 60.00th=[  120],
+     | 70.00th=[  135], 80.00th=[  153], 90.00th=[  198], 95.00th=[  449],
+     | 99.00th=[  627], 99.50th=[  709], 99.90th=[  963], 99.95th=[ 1004],
+     | 99.99th=[ 1696]
+   bw (  KiB/s): min=55384, max=153112, per=99.57%, avg=107716.61, stdev=10310.48, samples=236
+   iops        : min=13846, max=38278, avg=26929.15, stdev=2577.62, samples=236
+  write: IOPS=27.1k, BW=106MiB/s (111MB/s)(3176MiB/30001msec); 0 zone resets
+    clat (nsec): min=1366, max=115220, avg=2947.18, stdev=2226.07
+     lat (nsec): min=1405, max=115283, avg=3045.35, stdev=2269.31
+    clat percentiles (nsec):
+     |  1.00th=[ 1576],  5.00th=[ 1640], 10.00th=[ 1688], 20.00th=[ 1752],
+     | 30.00th=[ 1848], 40.00th=[ 2160], 50.00th=[ 2384], 60.00th=[ 2672],
+     | 70.00th=[ 3184], 80.00th=[ 3504], 90.00th=[ 4384], 95.00th=[ 5728],
+     | 99.00th=[13376], 99.50th=[15552], 99.90th=[24192], 99.95th=[32128],
+     | 99.99th=[52480]
+   bw (  KiB/s): min=54272, max=158592, per=99.56%, avg=107932.61, stdev=10347.04, samples=236
+   iops        : min=13568, max=39648, avg=26983.15, stdev=2586.76, samples=236
+  lat (usec)   : 2=18.36%, 4=25.15%, 10=5.59%, 20=0.87%, 50=0.07%
+  lat (usec)   : 100=23.02%, 250=23.77%, 500=1.16%, 750=1.77%, 1000=0.21%
+  lat (msec)   : 2=0.02%, 4=0.01%, 10=0.01%, 20=0.01%, 50=0.01%
+  cpu          : usr=2.11%, sys=7.59%, ctx=812114, majf=0, minf=51
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=811425,813124,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=106MiB/s (111MB/s), 106MiB/s-106MiB/s (111MB/s-111MB/s), io=3170MiB (3324MB), run=30001-30001msec
+  WRITE: bw=106MiB/s (111MB/s), 106MiB/s-106MiB/s (111MB/s-111MB/s), io=3176MiB (3331MB), run=30001-30001msec
+
+Disk stats (read/write):
+  sdc: ios=809210/513738, merge=0/106, ticks=109428/59211, in_queue=168677, util=81.92%
+--------------------------------------------------------------------------------
+  END   : 2026-02-27T11:42:11Z  |  EXIT: 0
+--------------------------------------------------------------------------------
+
+================================================================================
+  END OF REPORT
+  TIME : 2026-02-27T11:42:11Z
+================================================================================
+
