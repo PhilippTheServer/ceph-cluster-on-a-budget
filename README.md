@@ -273,3 +273,24 @@ flowchart TB
     style RADOS fill:#131120,stroke:#403d52,color:#e0def4
     style CTRL  fill:#1a1828,stroke:#7c3aed,color:#c4a7e7
 ```
+
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'background': '#0d0c14', 'primaryColor': '#1a1828', 'primaryTextColor': '#e0def4', 'primaryBorderColor': '#9ccfd8', 'lineColor': '#908caa', 'clusterBkg': '#131120', 'clusterBorder': '#9ccfd8', 'titleColor': '#e0def4'}}}%%
+flowchart LR
+    subgraph NODE["Auf jeder Node"]
+        CE["ceph-exporter\nCeph-Metriken"]
+        NE["node-exporter\nCPU · RAM · Disk"]
+        PT["Promtail\nLog-Agent"]
+    end
+
+    PROM["Prometheus\nMetriken-Sammlung"]
+    LOKI["Loki\nLog-Aggregation"]
+    GRAF["Grafana\nVisualisierung"]
+
+    CE --> PROM
+    NE --> PROM
+    PT --> LOKI
+    PROM --> GRAF
+    LOKI --> GRAF
+```
