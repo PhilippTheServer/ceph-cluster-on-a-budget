@@ -226,3 +226,34 @@ flowchart TB
 | Logging                 | Loki, Promtail                                  |
 | Internetanbindung lokal | 500 Mbit/s symmetrisch                          |
 | Internes Netzwerk       | Statisches Backbone, kein DHCP                  |
+
+
+
+---
+
+## Ceph Aufbau
+
+```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': {'background': '#0d0c14', 'primaryColor': '#1a1828', 'primaryTextColor': '#e0def4', 'primaryBorderColor': '#524f67', 'lineColor': '#908caa', 'clusterBkg': '#131120', 'clusterBorder': '#423e59', 'titleColor': '#e0def4'}}}%%
+flowchart LR
+    C(["💻 Client"])
+
+    subgraph CTRL["Steuerungsebene"]
+        direction TB
+        MON["🧭 Monitor\nCluster-Karte & Quorum"]
+        MGR["🎛️ Manager\nMetriken & Dashboard"]
+    end
+
+    subgraph DATA["Datenebene"]
+        direction TB
+        O1["🗄️ OSD 1"]
+        O2["🗄️ OSD 2"]
+        O3["🗄️ OSD 3"]
+    end
+
+    C -->|"① Wo liegt\nmein Datum?"| MON
+    C ==>|"② Daten\nschreiben"| O1
+    O1 -.->|"③ Replikation"| O2
+    O1 -.->|"③ Replikation"| O3
+    MGR -.-|"überwacht"| DATA
+```
