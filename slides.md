@@ -13,37 +13,56 @@ footer: 'Ceph Cluster on a Budget'
 
 ### Verteilter Storage aus gebrauchter Hardware
 
-**Philipp Lehmann**
-Mai 2026
-
 ---
 
 ## Motivation
+<br>
 
-- Storage-Bedarf wächst — kaufen oder selbst bauen?
-- **Ceph** ist produktionsreif, battle-tested, Open Source
+
+- Speicher Bedarf wächst — kaufen oder selbst bauen?
+  - RAM und Speicher sind teuer dieser Tage
+- Ausfallsicherheit - wie redundant muss die Lösung sein?
 - Alte Hardware liegt rum — warum wegwerfen?
-- Lernprojekt: verteilte Systeme _wirklich_ verstehen
+
 
 <br>
 
-> Ziel: funktionierender Cluster — kein Enterprise-Budget
+> Ziel: Speicher Cluster zu möglichst geringen Kosten
 
 ---
 
-## Die Hardware
+## Was ist Ceph?
 
-Was steckt wirklich drin:
-
-- Alte Desktop-PCs und Server aus dem Keller
-- HDDs: **300 GB bis 7 TB** — alles bunt gemischt
-- 2 × SSD (300 GB) — ohne dedizierte BlueStore-Rolle
-- Recycelte Switches
-- Betriebssystem: **Debian 13**
+- Ceph verwaltet Speicher von verschiedenen Geräten in einem Cluster und stellt sie nach außen als einheitlichen Speicher bereit, während alle Hardwarekomponenten austauschbar bleiben.
 
 <br>
 
-> Kein einheitliches Setup — das ist der Punkt
+- Unterstützt Block-, Datei- und Object-Storage gleichzeitig
+
+- Orchestriert sich weitgehend selbst: 
+  Rebalancing, Recovery und Replikation laufen automatisch im Hintergrund.
+
+---
+
+
+
+![w:700](images/Ceph-aufbau.png)
+
+---
+
+## Womit haben wir gebastelt?
+
+- Alte Desktop-PCs und Server - zwischen 2007 - 2020
+  - (noch mit DDR2 RAM)
+  - Betriebssystem: Debian 13
+- HDDs: 300 GB bis 7 TB bunt gemischt
+- 2 × SSD (300 GB)
+- Switch
+
+
+<br>
+
+> Aus allem zusammen gepuzzelt was das Lager noch zu bieten hatte.
 
 ---
 
@@ -57,6 +76,41 @@ Was steckt wirklich drin:
 | Genutzte Kapazität  | 26.3 TB (29 %)  |
 | HDD-Größen          | 300 GB – 7 TB   |
 | Betriebssystem      | Debian 13       |
+
+---
+
+## 13 Jahre Hardware — ein Cluster
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;font-size:0.78em;margin-top:0.5rem;">
+  <div>
+
+| Node | CPU | Jahr |
+|---|---|---|
+| ceph-tower10 | i7-970 (Gulftown) | **2010** |
+| Ceph-Tower4/5 | i5-3570 (Ivy Bridge) | **2012** |
+| CephTower2 | i7-4770 (Haswell) | **2013** |
+| tower-storage | i5-6600 (Skylake) | **2015** |
+| ceph-tower7 | Xeon E-2236 | **2018** |
+| ceph-tower8 | Xeon E-2288G | **2020** |
+
+  </div>
+  <div>
+
+**Kurioseste Funde:**
+
+🦕 Älteste Platte: Hitachi 500 GB (~2008)
+mit **50.239 Betriebsstunden** — noch aktiv
+
+🖥️ ceph-tower8: brandneuer Xeon E-2288G,
+betreibt aber eine **WD Green von 2009** als OSD
+
+💾 ceph-tower5 bootet heute noch von einer
+**Samsung HD250HJ — Baujahr ~2007**
+
+  </div>
+</div>
+
+> Ceph interessiert sich nicht für das Alter der Hardware — solange die Disk antwortet, wird sie genutzt.
 
 ---
 
