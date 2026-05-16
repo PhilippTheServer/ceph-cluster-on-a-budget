@@ -19,9 +19,10 @@ footer: 'Ceph Cluster on a Budget'
 <br>
 
 
-- Speicher Bedarf wächst - kaufen oder selbst bauen?
+- Speicher Bedarf wächst - Speicher einer Maschine reicht nicht aus.
   - RAM und Speicher sind teuer dieser Tage
 - Ausfallsicherheit - wie redundant muss die Lösung sein?
+
 - Alte Hardware liegt rum - warum wegwerfen?
 
 
@@ -46,7 +47,7 @@ footer: 'Ceph Cluster on a Budget'
 
 
 
-![w:700](images/Ceph-aufbau.png)
+![bg w:900](images/Ceph-Architecture.png)
 
 ---
 
@@ -100,7 +101,7 @@ ceph-tower5 bootet heute noch von einer Samsung HD250HJ, Baujahr ~2007
 | Komponente | Anzahl | Standort |
 | --- | ---: | --- |
 | Manager | 3 | Hetzner Cloud |
-| Monitor | 5 | Hetzner Cloud |
+| Monitor | 5 | Hetzner Cloud & Lokales Datacenter |
 | Storage Nodes | 13 | Lokales Datacenter
 | OSDs | 37 | Lokales Datacenter |
 | OSD Hosts | 13 | Lokales Datacenter |
@@ -126,7 +127,7 @@ ceph-tower5 bootet heute noch von einer Samsung HD250HJ, Baujahr ~2007
 
 ## Netzwerk: Das Problem
 
-Lokale Internetanbindung auf **500 Mbit/s**
+Lokale Internetanbindung auf **500 Mbit/s** begrenzt
 
 Ceph-interner Traffic belastet die Leitung:
 
@@ -134,9 +135,7 @@ Ceph-interner Traffic belastet die Leitung:
 - Rebalancing
 - Recovery & Backfill
 
-<br>
-
-❌ Alles über WireGuard => Leitung sofort überlastet
+![bg right:35% contain](images/Wireguard-Netz.png)
 
 ---
 
@@ -154,6 +153,13 @@ Ceph-interner Traffic belastet die Leitung:
 - Ceph-interner Traffic läuft **nicht** über WireGuard
 - die ISP-Leitung bleibt frei für externen Zugriff
 
+---
+
+![bg w:900](images/Ceph-Architecture.png)
+
+---
+
+![bg w:800](images/Ceph-Architecture2.png)
 
 ---
 
@@ -200,17 +206,13 @@ Grafana
 
 ## Learnings
 
-✅ Ceph läuft auf **heterogener Hardware** - kein Blocker
+✅ Ceph läuft auf älterer Hardware
 
-✅ **Netzwerktrennung ist der kritische Architekturpunkt**
+✅ Aufteilung in Client und Backbone Netzwerk zur Traffic Verteilung
 
-✅ Cloud-Nodes als stabile externe Einstiegspunkte - günstig & effektiv
-
-✅ Statische IPs vereinfachen Debugging erheblich
+✅ Cloud-Nodes als stabile externe Einstiegspunkte - günstige public IPv4
 
 ⚠️ Alte Hardware = unvorhersehbare Performance-Unterschiede
-
-⚠️ Monitoring **von Anfang an** einrichten - nicht nachträglich
 
 ---
 
